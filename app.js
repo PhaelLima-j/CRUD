@@ -1,9 +1,8 @@
-
 const express = require('express');
-
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 const createError = require('http-errors');
 const { logger } = require('./utils');
-const { connect } = require('./models');
 const router = require('./routes');
 
 const app = express();
@@ -30,9 +29,20 @@ app.use(function(err, _req, res, _next) {
 });
 
 const porta = 3000;
-app.listen(porta, () => {
-  connect();
 
+// Conexão com o banco via Prisma
+async function main() {
+  try {
+    await prisma.$connect();
+    logger.info('Conectado ao banco de dados com sucesso!');
+  } catch (error) {
+    logger.error('Erro ao conectar ao banco de dados:', error);
+    process.exit(1); 
+  }
+}
+
+app.listen(porta, async () => {
+  await main();
   logger.info(`Servidor ouvindo na porta ${porta}`);
 });
 

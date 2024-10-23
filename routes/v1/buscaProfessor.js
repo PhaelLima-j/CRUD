@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { buscaProfesores } = require ('../../services');
+const { buscaProfessor } = require ('../../services');
 
 const { logger } = require ('../../utils');
 
@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/', async (_req, res) => {
     try{
-        const professores = await buscaProfesores();
+        const professores = await buscaProfessor();
         
         res.json({
             sucesso: true,
