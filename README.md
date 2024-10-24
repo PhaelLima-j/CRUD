@@ -1,2 +1,2 @@
 # CRUD
-Esse é um CRUD que criei para o meu estudo de caso da faculdade.
+Esse é um CRUD que estou criando para a minha faculdade.
