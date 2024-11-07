@@ -7,7 +7,7 @@ const { logger } = require ('../../utils');
 
 const router = express.Router();
 
-router.get('/', cors(), async (_req, res) => {
+router.get('/professor', cors(), async (_req, res) => {
     
     try{
         const professores = await buscaProfessor();

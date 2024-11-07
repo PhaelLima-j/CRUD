@@ -8,7 +8,7 @@ const { logger } = require ('../../utils');
 
 const router = express.Router();
 
-router.post('/', cors(), async (req, res) => {
+router.post('/professor', cors(), async (req, res) => {
     const dados = req.body;
 
     try{

@@ -7,10 +7,10 @@ const atualizaProfessorRouter = require('./atualizaProfessores');
 
 const router = express.Router();
 
-router.use('/buscaProfessores', buscaProfessorRouter);
-router.use('/apagaProfessores', apagaProfessorRouter);
-router.use('/criaProfessores', criaProfessorRouter);
-router.use('/atualizaProfessores', atualizaProfessorRouter);
+router.use('/projeto-escolar', buscaProfessorRouter);
+router.use('/projeto-escolar', apagaProfessorRouter);
+router.use('/projeto-escolar', criaProfessorRouter);
+router.use('/projeto-escolar', atualizaProfessorRouter);
 
 
 module.exports = router;

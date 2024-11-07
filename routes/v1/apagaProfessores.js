@@ -7,7 +7,7 @@ const { deletarProfessor } = require('../../services');
 
 const router = express.Router();
 
-router.delete('/:id', cors(), async (req, res) => {
+router.delete('/professor/:id', cors(), async (req, res) => {
     const professorId = req.params.id;
 
     try {

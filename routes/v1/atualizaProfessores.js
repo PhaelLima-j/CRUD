@@ -7,7 +7,7 @@ const { atualizarProfessor } = require('../../services');
 
 const router = express.Router();
 
-router.put('/:id', cors(), async (req, res) => {
+router.put('/professor/:id', cors(), async (req, res) => {
     const idProfessor = req.params.id;
     
     try{
