@@ -27,7 +27,7 @@ const criaProfessor = async (dadosProfessor) => {
     // Executar script
     const result = await prisma.$executeRawUnsafe(sql);
 
-    return !!result;
+    return !! result;
 };
 
 const atualizaProfessor = async (dadosProfessor) => {
@@ -46,10 +46,10 @@ const atualizaProfessor = async (dadosProfessor) => {
     // Executar script
     const result = await prisma.$executeRawUnsafe(sql);
 
-    return !!result;
+    return !! result;
 };
 
 module.exports = {
     criaProfessor,
-    updateProfessor,
+    atualizaProfessor,
 };

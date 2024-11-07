@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require ('cors');
 
 const { buscaProfessor } = require ('../../services');
 
@@ -6,7 +7,8 @@ const { logger } = require ('../../utils');
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
+router.get('/', cors(), async (_req, res) => {
+    
     try{
         const professores = await buscaProfessor();
         

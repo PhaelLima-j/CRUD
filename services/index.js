@@ -3,6 +3,6 @@ module.exports = {
     buscaProfessor: require('./busca-professor'),
     inserirProfessor: require('./cria-professor'),
     apagaProfessor: require('./apaga-professor'),
-    atualizaProfessor: require('./atualiza-professor'),
+    atualizarProfessor: require('./atualiza-professor'),
     
 };

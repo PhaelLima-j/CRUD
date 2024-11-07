@@ -1,16 +1,16 @@
+const professor = require('../model/professor');
 
 const atualizarProfessor = (async (dadosProfessor, id) => {
     
     const idProfessor = id;
+    dadosProfessor.id = idProfessor;
 
-    // ADicionar o id do professor com os dados do json
-    dadosProfessor.id = idProfessor
+    const result = await professor.atualizaProfessor(dadosProfessor);
 
-    const result = await professor.updateProfessor
     if (result)
         return true;
     else
         return false;
-})
+});
 
 module.exports = atualizarProfessor;

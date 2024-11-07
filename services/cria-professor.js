@@ -1,5 +1,6 @@
+const professor = require('../model/professor');
+
 const inserirProfessor = (async (dadosProfessor) => {
-    const professor = require('../model/professor');
 
     const result = professor.criaProfessor(dadosProfessor);
 
