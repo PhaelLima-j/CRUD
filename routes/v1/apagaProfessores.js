@@ -1,26 +1,17 @@
 const express = require ('express');
-
-const { apagaProfessor } = require('../../services');
+const { PrismaClient } = require('@prisma/client'); 
 
 const { logger } = require('../../utils');
+const { apagaProfessor } = require('../../services');
 
-const router = express.router();
+const prisma = new PrismaClient();
+const router = express.Router();
 
-router.delete('/', async (req, res) => {
-    const professorId = parseInt(req.params.id);
-    
+router.delete('/:id', async (req, res) => {
+    const professorId = req.params.id;
+
     try {
-        const professor = await prisma.tbl_professor.findUnique({
-            where: { id: professorId }
-        });
-
-        if(!professor){
-            throw new Error('Não existe um professor com esse identificador');
-        }
-
-        await prisma.tbl_professor.delete({
-            where: { id: professorId }
-        });
+        const professor = await apagaProfessor(professorId)
 
         res.json({
             sucesso: true,
@@ -34,3 +25,5 @@ router.delete('/', async (req, res) => {
         });
     }
 });
+
+module.exports = router;

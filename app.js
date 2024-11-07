@@ -4,6 +4,7 @@ const prisma = new PrismaClient();
 const createError = require('http-errors');
 const { logger } = require('./utils');
 const router = require('./routes');
+const cors = require('cors');
 
 const app = express();
 

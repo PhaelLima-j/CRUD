@@ -1,11 +1,13 @@
 const express = require ('express');
 
-const { atualizaProfessor } = require('../../services');
+const { logger } = require ('../../utils');
+const bodyParser = require('body-parser');
 
-const { logger } = require('../../utils');
+const router = express.Router();
 
-const router = express.router();
-
-router.put('/', async (req, res) => {
+router.delete('professor/:id', cors(), async (req, res) => {
+    const idProfessor = req.params.id;
     
-})
+
+});
+

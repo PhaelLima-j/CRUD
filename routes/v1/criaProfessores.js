@@ -1,13 +1,31 @@
-const express = require ('express');
+const express = require('express');
+const cors = require ('cors');
 
-const { criaProfessor } = require('../../services');
+const { inserirProfessor } = require ('../../services');
 
-const { logger } = require('../../utils');
+const { logger } = require ('../../utils');
 
-const router = express.router();
 
-router.post('/', async (req, res) => {
- 
+const router = express.Router();
+
+router.post('/', cors(), async (req, res) => {
+    const dados = req.body;
+
+    try{
+        const professor = await inserirProfessor(dados);
+            
+        res.json({
+            sucesso: true,
+            professor,
+        });
+    } catch (e) {
+        logger.error(`Erro na criação do professor: ${e.message}`);
+    
+        res.status(500).json({
+            sucesso: false,
+            erro: e.message,
+        });
+    }
 });
 
-module.exports = router;
+module.exports = router
