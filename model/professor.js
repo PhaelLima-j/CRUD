@@ -49,7 +49,17 @@ const atualizaProfessor = async (dadosProfessor) => {
     return !! result;
 };
 
+const deletaProfessor = async (id) => {
+    const sql = `delete from tbl_professor
+                where id = ${id}`;
+                
+    // Executar script
+    const result = await prisma.$executeRawUnsafe(sql);
+
+    return !! result;
+};
 module.exports = {
     criaProfessor,
     atualizaProfessor,
+    deletaProfessor,
 };
